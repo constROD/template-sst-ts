@@ -10,7 +10,12 @@
     "lint:types": "tsc --noEmit",
     "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\""
   },
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "lodash": "^4.17.21"
+  },
   "devDependencies": {
+    "@types/lodash": "^4.14.194",
     "@types/node": "^18.16.1",
     "eslint-config-base": "workspace:*",
     "sst": "^2.7.2",
