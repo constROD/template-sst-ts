@@ -1,31 +1,34 @@
-import { API } from './common';
+import { API_RESOURCES } from './common';
 
-export const USERS_ROUTES = {
-  handler: 'packages/lib/src/lambda.handler',
-  routes: {
-    listOfUsers: {
-      method: 'GET',
-      path: `/${API.Users}`,
-    },
-    getSample: {
-      method: 'GET',
-      path: `/${API.Users}/{id}`,
-    },
-    createSample: {
-      method: 'POST',
-      path: `/${API.Users}`,
-    },
-    updateSample: {
-      method: 'PUT',
-      path: `/${API.Users}/{id}`,
-    },
-    deleteSample: {
-      method: 'DELETE',
-      path: `/${API.Users}/{id}`,
-    },
-    archiveSample: {
-      method: 'DELETE',
-      path: `/${API.Users}/{id}/archive`,
-    },
+export const USERS_API_ROUTES = {
+  listOfUsers: {
+    method: 'GET',
+    path: `/${API_RESOURCES.Users}`,
+    filePath: `packages/${API_RESOURCES.Users}/src/functions/users-list.handler`,
+  },
+  getUser: {
+    method: 'GET',
+    path: `/${API_RESOURCES.Users}/{id}`,
+    filePath: `packages/${API_RESOURCES.Users}/src/functions/users-get.handler`,
+  },
+  createUser: {
+    method: 'POST',
+    path: `/${API_RESOURCES.Users}`,
+    filePath: `packages/${API_RESOURCES.Users}/src/functions/users-create.handler`,
+  },
+  updateUser: {
+    method: 'PUT',
+    path: `/${API_RESOURCES.Users}/{id}`,
+    filePath: `packages/${API_RESOURCES.Users}/src/functions/users-update.handler`,
+  },
+  deleteUser: {
+    method: 'DELETE',
+    path: `/${API_RESOURCES.Users}/{id}`,
+    filePath: `packages/${API_RESOURCES.Users}/src/functions/users-delete.handler`,
+  },
+  archiveUser: {
+    method: 'DELETE',
+    path: `/${API_RESOURCES.Users}/{id}/archive`,
+    filePath: `packages/${API_RESOURCES.Users}/src/functions/users-archive.handler`,
   },
 } as const;

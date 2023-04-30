@@ -9,7 +9,9 @@
     "constrod",
     "npmjs",
     "sonarcloud",
-    "tsbuildinfo"
+    "tsbuildinfo",
+    "openapi",
+    "oracledb"
   ],
   "ignorePaths": [
     "node_modules/",
