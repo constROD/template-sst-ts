@@ -1,0 +1,46 @@
+# directories
+node_modules/
+dist/
+build/
+coverage/
+packages/
+
+# sst
+.sst/
+.build/
+.sst.config.*
+
+# configs
+*.config.ts
+*.config.js
+*.config.json
+*.config.cjs
+*.config.mjs
+*.config.yml
+*.config.yaml
+
+# logs
+*.log
+*-debug.log*
+*-error.log*
+
+# miscellaneous
+.eslintcache
+.vscode
+*.d.ts
+.DS_Store
+*.tsbuildinfo
+
+# secrets
+.env
+.env.*
+.env-*
+.npmrc
+
+# secret examples
+!**.example
+
+# locks
+*-lock.json
+*-lock.yaml
+*.lock

@@ -1,0 +1,39 @@
+{
+  "name": "template-sst-ts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint . --fix --ext .js,.ts,.jsx,.tsx",
+    "lint:types": "tsc --noEmit",
+    "lint:spell": "git diff --cached --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin",
+    "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\" \"pnpm lint:spell\"",
+    "ci:lint": "pnpm recursive run lint:all"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
+    "@tsconfig/node16": "^1.0.3",
+    "aws-cdk-lib": "2.72.1",
+    "concurrently": "^8.0.1",
+    "constructs": "10.1.156",
+    "cspell": "^6.31.1",
+    "eslint": "^8.39.0",
+    "eslint-config-base": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "sst": "^2.7.2",
+    "typescript": "^5.0.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

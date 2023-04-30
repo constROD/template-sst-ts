@@ -1,0 +1,25 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "pnpm",
+    "commitlint",
+    "esbuild",
+    "npmrc",
+    "constrod",
+    "npmjs",
+    "sonarcloud",
+    "tsbuildinfo"
+  ],
+  "ignorePaths": [
+    "node_modules/",
+    "build/",
+    ".build/",
+    ".sst/",
+    "dist/",
+    ".husky",
+    "pnpm-lock.yaml",
+    "package.json",
+    "tsconfig.tsbuildinfo"
+  ]
+}

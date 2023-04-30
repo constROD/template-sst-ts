@@ -1,0 +1,26 @@
+# directories
+node_modules/
+dist/
+build/
+coverage/
+
+# sst
+.sst/
+.build/
+
+# logs
+*.log
+*-debug.log*
+*-error.log*
+
+# miscellaneous
+.eslintcache
+.vscode
+*.d.ts
+.DS_Store
+*.tsbuildinfo
+
+# locks
+*-lock.json
+*-lock.yaml
+*.lock
