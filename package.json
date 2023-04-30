@@ -1,13 +1,34 @@
 {
   "name": "template-sst-ts",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "repository": "https://github.com/constrod/template-sst-ts",
+  "bugs": {
+    "url": "https://github.com/constrod/template-sst-ts/issues"
+  },
+  "contributors": [
+    {
+      "name": "Rodrick Alcantara",
+      "url": "https://github.com/constROD"
+    }
+  ],
+  "description": "Custom Template for SST TypeScript",
+  "author": "Rodrick Alcantara <rialcantara21@gmail.com>",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "sst dev",
     "build": "sst build",
+    "build:dev": "sst build --stage dev",
+    "build:staging": "sst build --stage staging",
+    "build:prod": "sst build --stage prod",
     "deploy": "sst deploy",
+    "deploy:dev": "sst deploy --stage dev",
+    "deploy:staging": "sst deploy --stage staging",
+    "deploy:prod": "sst deploy --stage prod",
     "remove": "sst remove",
+    "remove:dev": "sst remove --stage dev",
+    "remove:staging": "sst remove --stage staging",
+    "remove:prod": "sst remove --stage prod",
     "console": "sst console",
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
@@ -15,7 +36,13 @@
     "lint:types": "tsc --noEmit",
     "lint:spell": "git diff --cached --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin",
     "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\" \"pnpm lint:spell\"",
-    "ci:lint": "pnpm recursive run lint:all"
+    "ci:lint": "pnpm recursive run lint:all",
+    "pre-commit": "concurrently \"lint-staged --allow-empty\" \"pnpm lint:spell\"",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",

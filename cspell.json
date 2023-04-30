@@ -11,6 +11,7 @@
     "sonarcloud",
     "tsbuildinfo"
   ],
+  "files": ["./packages/", "./stacks/"],
   "ignorePaths": [
     "node_modules/",
     "build/",

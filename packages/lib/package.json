@@ -8,12 +8,7 @@
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.ts,.jsx,.tsx",
     "lint:types": "tsc --noEmit",
-    "lint:spell": "git diff --cached --name-only | npx cspell --config ../../cspell.json --no-summary --no-progress --no-must-find-files --file-list stdin",
-    "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\" \"pnpm lint:spell\""
-  },
-  "lint-staged": {
-    "*.{js,ts}": "eslint --cache --fix",
-    "**/*": "prettier --write --ignore-unknown"
+    "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\""
   },
   "devDependencies": {
     "@types/node": "^18.16.1",
