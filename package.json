@@ -14,7 +14,6 @@
   "description": "Custom Template for SST TypeScript",
   "author": "Rodrick Alcantara <rialcantara21@gmail.com>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev": "sst dev",
     "build": "sst build",
@@ -54,7 +53,7 @@
     "cspell": "^6.31.1",
     "eslint": "^8.39.0",
     "eslint-config-base": "workspace:*",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "sst": "^2.7.2",
