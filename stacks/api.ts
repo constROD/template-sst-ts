@@ -1,4 +1,5 @@
-import { Api, type StackContext } from 'sst/constructs';
+import { Api, use, type StackContext } from 'sst/constructs';
+import { Secrets } from './secrets';
 
 export function API({ stack }: StackContext) {
   const api = new Api(stack, 'API', {
@@ -19,4 +20,5 @@ export function API({ stack }: StackContext) {
   stack.addOutputs({
     ApiEndpoint: api.url,
   });
+  api.bind([use(Secrets).TEST]);
 }

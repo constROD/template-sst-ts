@@ -1,5 +1,5 @@
 import { SSTConfig } from 'sst';
-import { API } from './stacks/api';
+import { API, Secrets } from './stacks';
 
 const esbuild = {
   target: 'node16',
@@ -29,6 +29,7 @@ export default {
   },
   stacks(app) {
     app.setDefaultFunctionProps({ nodejs: { esbuild } });
+    app.stack(Secrets);
     app.stack(API);
   },
 } satisfies SSTConfig;
