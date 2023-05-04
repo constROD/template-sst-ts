@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "sst bind vitest",
+    "test": "sst bind vitest run",
+    "test:dev": "sst bind vitest watch",
+    "test:coverage": "sst bind vitest --coverage",
     "format": "prettier --write ./src/**/*.ts{,x}",
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.ts,.jsx,.tsx",
@@ -21,6 +23,7 @@
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.16.1",
     "@types/pg": "^8.6.6",
+    "@vitest/coverage-c8": "^0.31.0",
     "eslint-config-base": "workspace:*",
     "sst": "^2.7.2",
     "vitest": "^0.30.1"
