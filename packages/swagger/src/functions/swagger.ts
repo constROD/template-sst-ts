@@ -3,7 +3,7 @@ import { swaggerDefinition } from 'src/schema';
 import { ApiHandler } from 'sst/node/api';
 
 export const handler = ApiHandler(async event => {
-  const title = 'Service API';
+  const title = 'bossROD TV API';
 
   if (event.rawPath === SWAGGER_ROUTES.swaggerJson.path) {
     return {

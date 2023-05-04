@@ -20,9 +20,7 @@ nvm use # For MacOSX and Linux
 nvm use $(cat .nvmrc) # For windows (Git Bash)
 ```
 
-## Without Docker
-
-- Install dependencies.
+**Install Dependencies:**
 
 ```bash
 pnpm i
@@ -31,26 +29,11 @@ pnpm i
 **Build:**
 
 ```bash
-pnpm build:<stage> # dev | staging | prod
-pnpm build --stage <your-custom-stage> # your-custom-stage
+pnpm build
 ```
 
-**Development Mode:**
+**Development:**
 
 ```bash
-pnpm dev --stage <your-custom-stage> # your-custom-stage
-```
-
-**Remove:**
-
-```bash
-pnpm remove:<stage> # dev | staging | prod
-pnpm run remove --stage <your-custom-stage> # your-custom-stage
-```
-
-**Deploy:**
-
-```bash
-pnpm deploy:<stage> # dev | staging | prod
-pnpm deploy --stage <your-custom-stage> # your-custom-stage
+pnpm dev
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "users",
+  "name": "core",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,14 +10,19 @@
     "lint:types": "tsc --noEmit",
     "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\""
   },
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "kysely": "^0.24.2",
+    "lodash": "^4.17.21",
+    "pg": "^8.10.0"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.114",
+    "@types/lodash": "^4.14.194",
     "@types/node": "^18.16.1",
+    "@types/pg": "^8.6.6",
     "eslint-config-base": "workspace:*",
-    "sst": "^2.7.2"
-  },
-  "dependencies": {
-    "kysely": "^0.24.2",
-    "zod": "^3.21.4"
+    "sst": "^2.7.2",
+    "vitest": "^0.30.1"
   }
 }

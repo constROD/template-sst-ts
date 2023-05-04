@@ -1,23 +1,13 @@
 import { SSTConfig } from 'sst';
-import { API, Secrets } from './stacks';
+import { API } from 'stacks/api';
+import { Secrets } from 'stacks/secrets';
 
 const esbuild = {
   target: 'node16',
   bundle: true,
   minify: false,
   sourcemap: true,
-  external: [
-    'aws-sdk',
-
-    /* Packages below are packages unnecessarily required by Knex.js */
-    'mysql',
-    'mysql2',
-    'better-sqlite3',
-    'pg-query-stream',
-    'tedious',
-    'oracledb',
-    'sqlite3',
-  ],
+  external: ['aws-sdk'],
 };
 
 export default {

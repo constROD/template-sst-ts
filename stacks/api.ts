@@ -8,17 +8,17 @@ export function API({ stack }: StackContext) {
       'GET /': 'packages/swagger/src/functions/swagger.handler',
       'GET /swagger.json': 'packages/swagger/src/functions/swagger.handler',
 
-      /* Users */
-      'GET /users': 'packages/users/src/functions/users-list.handler',
-      'POST /users': 'packages/users/src/functions/users-create.handler',
-      'GET /users/{id}': 'packages/users/src/functions/users-get.handler',
-      'PUT /users/{id}': 'packages/users/src/functions/users-update.handler',
-      'DELETE /users/{id}': 'packages/users/src/functions/users-delete.handler',
-      'DELETE /users/{id}/archive': 'packages/users/src/functions/users-archive.handler',
+      /* Persons */
+      'GET /persons': 'packages/users/src/functions/persons-list.handler',
+      'POST /persons': 'packages/users/src/functions/persons-create.handler',
+      'GET /persons/{id}': 'packages/users/src/functions/persons-get.handler',
+      'PUT /persons/{id}': 'packages/users/src/functions/persons-update.handler',
+      'DELETE /persons/{id}': 'packages/users/src/functions/persons-delete.handler',
+      'DELETE /persons/{id}/archive': 'packages/users/src/functions/persons-archive.handler',
     },
   });
   stack.addOutputs({
     ApiEndpoint: api.url,
   });
-  api.bind([use(Secrets).TEST]);
+  api.bind([use(Secrets).VERSION]);
 }

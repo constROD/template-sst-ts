@@ -11,7 +11,8 @@
     "sonarcloud",
     "tsbuildinfo",
     "openapi",
-    "oracledb"
+    "oracledb",
+    "Kysely"
   ],
   "ignorePaths": [
     "node_modules/",

@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "module": "esnext",
-    "baseUrl": "."
-  },
-  "exclude": ["./node_modules"]
-}
