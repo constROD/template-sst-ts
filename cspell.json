@@ -12,7 +12,8 @@
     "tsbuildinfo",
     "openapi",
     "oracledb",
-    "Kysely"
+    "Kysely",
+    "Dsonar"
   ],
   "ignorePaths": [
     "node_modules/",
