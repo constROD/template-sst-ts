@@ -1,8 +1,12 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "@tsconfig/node16/tsconfig.json",
   "exclude": ["./node_modules", "./packages"],
   "compilerOptions": {
     "baseUrl": ".",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
     "paths": {
       "@core/*": ["./packages/core/src/*"]
     }
