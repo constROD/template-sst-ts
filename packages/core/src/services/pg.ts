@@ -1,6 +1,6 @@
 import { type Kysely, type UpdateObject } from 'kysely';
 import { type InsertObjectOrList } from 'kysely/dist/cjs/parser/insert-values-parser';
-import { type DatabaseTables } from 'src/db';
+import { type DatabaseTables } from '../db';
 
 export class PGService<TTableName extends keyof DatabaseTables> {
   protected db: Kysely<DatabaseTables>;

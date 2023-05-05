@@ -35,7 +35,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: SST Deploy to Staging
-        run: npx sst deploy --stage ${{ env.STAGE }}}
+        run: npx sst deploy --stage ${{ env.STAGE }}
         env:
           AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
@@ -68,8 +68,8 @@ jobs:
       - name: Install Packages
         run: pnpm install --frozen-lockfile
 
-      - name: SST Deploy to Staging
-        run: npx sst deploy --stage ${{ env.STAGE }}}
+      - name: SST Deploy to Production
+        run: npx sst deploy --stage ${{ env.STAGE }}
         env:
           AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
