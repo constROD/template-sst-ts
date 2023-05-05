@@ -24,7 +24,7 @@
     "lint:spell": "git diff --cached --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin",
     "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\" \"pnpm lint:spell\"",
     "ci:lint": "pnpm recursive run lint:all",
-    "ci:test": "pnpm recursive run test:coverage",
+    "ci:test": "vitest --coverage",
     "pre-commit": "concurrently \"lint-staged --allow-empty\" \"pnpm lint:spell\"",
     "prepare": "husky install"
   },
@@ -39,6 +39,7 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@tsconfig/node16": "^1.0.3",
+    "@vitest/coverage-c8": "^0.31.0",
     "aws-cdk-lib": "2.72.1",
     "concurrently": "^8.0.1",
     "constructs": "10.1.156",
@@ -49,6 +50,7 @@
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "sst": "^2.7.2",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.1"
   }
 }

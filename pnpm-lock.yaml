@@ -7,6 +7,7 @@ importers:
       '@commitlint/cli': ^17.6.1
       '@commitlint/config-conventional': ^17.6.1
       '@tsconfig/node16': ^1.0.3
+      '@vitest/coverage-c8': ^0.31.0
       aws-cdk-lib: 2.72.1
       concurrently: ^8.0.1
       constructs: 10.1.156
@@ -18,10 +19,12 @@ importers:
       prettier: ^2.8.8
       sst: ^2.7.2
       typescript: ^5.0.4
+      vitest: ^0.30.1
     devDependencies:
       '@commitlint/cli': 17.6.3
       '@commitlint/config-conventional': 17.6.3
       '@tsconfig/node16': 1.0.3
+      '@vitest/coverage-c8': 0.31.0_vitest@0.30.1
       aws-cdk-lib: 2.72.1_constructs@10.1.156
       concurrently: 8.0.1
       constructs: 10.1.156
@@ -33,6 +36,7 @@ importers:
       prettier: 2.8.8
       sst: 2.8.4
       typescript: 5.0.4
+      vitest: 0.30.1
 
   packages/core:
     specifiers:
@@ -40,7 +44,6 @@ importers:
       '@types/lodash': ^4.14.194
       '@types/node': ^18.16.1
       '@types/pg': ^8.6.6
-      '@vitest/coverage-c8': ^0.31.0
       date-fns: ^2.30.0
       eslint-config-base: workspace:*
       kysely: ^0.24.2
@@ -58,7 +61,6 @@ importers:
       '@types/lodash': 4.14.194
       '@types/node': 18.16.3
       '@types/pg': 8.6.6
-      '@vitest/coverage-c8': 0.31.0_vitest@0.30.1
       eslint-config-base: link:../eslint-config-base
       sst: 2.8.4_pg@8.10.0
       vitest: 0.30.1

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { format } from 'date-fns';
-import { formatDate, logger, transformToPascal, wait } from 'src/utils';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { formatDate, logger, transformToPascal, wait } from '../../../src/utils';
 
 describe('formatDate', () => {
   it('should return an empty string when date is null', () => {

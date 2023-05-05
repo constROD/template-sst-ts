@@ -8,46 +8,52 @@ on:
       - main
 
 jobs:
-  # test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-  #     - name: Setup pnpm
-  #       uses: pnpm/action-setup@v2.2.4
-  #       with:
-  #         version: 7
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16.13.0
-  #         cache: 'pnpm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'pnpm'
 
-  #     - name: Install Packages
-  #       run: pnpm install --frozen-lockfile
+      - name: Install Packages
+        run: pnpm install --frozen-lockfile
 
-  #     - name: Lint Types
-  #       run: pnpm ci:lint
+      - name: Lint Types
+        run: pnpm ci:lint
 
-  #     - name: Run Tests and Generate Coverage
-  #       run: pnpm ci:test
+      - name: Run Tests and Generate Coverage
+        run: pnpm ci:test
 
-  #     - name: Upload Coverage Report
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: coverage
-  #         path: coverage/
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage/
 
   sonarcloud:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - name: Download Coverage Report
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage
+          path: coverage/
 
       - name: Cache SonarCloud Packages
         uses: actions/cache@v2
