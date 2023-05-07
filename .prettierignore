@@ -20,6 +20,12 @@ coverage/
 .DS_Store
 *.tsbuildinfo
 
+# secrets
+.env
+.env.*
+.env-*
+.npmrc
+
 # locks
 *-lock.json
 *-lock.yaml
