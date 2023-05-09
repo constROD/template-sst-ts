@@ -15,8 +15,8 @@
   "author": "Rodrick Alcantara <rialcantara21@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "sst dev",
-    "build": "sst build",
+    "dev": "sst dev --stage dev",
+    "build": "sst build --stage dev",
     "format": "prettier --write .",
     "lint": "eslint ./stacks/ --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./stacks/ --fix --ext .js,.ts,.jsx,.tsx",
@@ -51,6 +51,7 @@
     "prettier": "^2.8.8",
     "sst": "^2.7.2",
     "typescript": "^5.0.4",
+    "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.30.1"
   }
 }

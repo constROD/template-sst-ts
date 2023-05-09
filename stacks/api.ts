@@ -5,16 +5,16 @@ export function API({ stack }: StackContext) {
   const api = new Api(stack, 'API', {
     routes: {
       /* Swagger Docs */
-      'GET /': 'packages/swagger/src/functions/swagger.handler',
-      'GET /swagger.json': 'packages/swagger/src/functions/swagger.handler',
+      'GET /': 'packages/functions/src/rest/swagger.handler',
+      'GET /swagger.json': 'packages/functions/src/rest/swagger.handler',
 
       /* Persons */
-      'GET /persons': 'packages/users/src/functions/persons-list.handler',
-      'POST /persons': 'packages/users/src/functions/persons-create.handler',
-      'GET /persons/{id}': 'packages/users/src/functions/persons-get.handler',
-      'PUT /persons/{id}': 'packages/users/src/functions/persons-update.handler',
-      'DELETE /persons/{id}': 'packages/users/src/functions/persons-delete.handler',
-      'DELETE /persons/{id}/archive': 'packages/users/src/functions/persons-archive.handler',
+      'GET /persons': 'packages/functions/src/rest/persons-list.handler',
+      'POST /persons': 'packages/functions/src/rest/persons-create.handler',
+      'GET /persons/{id}': 'packages/functions/src/rest/persons-get.handler',
+      'PUT /persons/{id}': 'packages/functions/src/rest/persons-update.handler',
+      'DELETE /persons/{id}': 'packages/functions/src/rest/persons-delete.handler',
+      'DELETE /persons/{id}/archive': 'packages/functions/src/rest/persons-archive.handler',
     },
   });
   stack.addOutputs({

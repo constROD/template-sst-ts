@@ -10,9 +10,10 @@ const defaultConfig: PoolConfig = {
   database: 'constrod',
 };
 
-export const connection = (config?: PoolConfig) =>
-  new Kysely<DatabaseTables>({
+export function connection(config?: PoolConfig) {
+  return new Kysely<DatabaseTables>({
     dialect: new PostgresDialect({
       pool: new Pool(config ? { ...defaultConfig, ...config } : defaultConfig),
     }),
   });
+}

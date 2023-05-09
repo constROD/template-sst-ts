@@ -1,9 +1,0 @@
-{
-  "extends": ["eslint-config-base"],
-  "parserOptions": {
-    "ecmaVersion": 2021,
-    "sourceType": "module",
-    "project": ["./tsconfig.eslint.json"]
-  },
-  "rules": {}
-}
