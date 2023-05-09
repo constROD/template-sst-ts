@@ -13,7 +13,9 @@
     "openapi",
     "oracledb",
     "Kysely",
-    "lcov"
+    "lcov",
+    "datasource",
+    "dbgenerated"
   ],
   "ignorePaths": [
     "node_modules/",

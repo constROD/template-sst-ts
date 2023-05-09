@@ -1,10 +1,10 @@
-import { connection } from '@core/db/connection';
+import { mysqlConnection } from '@core/db/connections';
 import * as PersonService from '@core/services/person';
 import { makeAPIResponse } from 'src/shared/utils/http';
 import { ApiHandler } from 'sst/node/api';
 import type swaggerJSDoc from 'swagger-jsdoc';
 
-const db = connection();
+const db = mysqlConnection();
 
 /* Handler */
 export const handler = ApiHandler(async () => {

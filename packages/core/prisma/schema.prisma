@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:password@localhost:3306/constrod"
+}
+
+model persons {
+  id          String    @id @default(dbgenerated("(UUID())")) @db.VarChar(255)
+  first_name  String    @db.VarChar(255)
+  last_name   String?   @db.VarChar(255)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @default(now())
+  archived_at DateTime? @db.DateTime()
+}

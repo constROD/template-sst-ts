@@ -4,16 +4,23 @@
   "type": "module",
   "scripts": {
     "test": "sst bind vitest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "prisma:migrate:reset": "prisma migrate reset",
     "format": "prettier --write ./src/**/*.ts{,x}",
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.ts,.jsx,.tsx",
     "lint:types": "tsc --noEmit",
-    "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\""
+    "lint:all": "concurrently \"pnpm lint\" \"pnpm lint:types\"",
+    "postinstall": "pnpm prisma:generate"
   },
   "dependencies": {
+    "@prisma/client": "^4.14.0",
     "date-fns": "^2.30.0",
     "kysely": "^0.24.2",
     "lodash": "^4.17.21",
+    "mysql2": "^3.3.0",
     "pg": "^8.10.0"
   },
   "devDependencies": {
@@ -22,6 +29,7 @@
     "@types/node": "^18.16.1",
     "@types/pg": "^8.6.6",
     "eslint-config-base": "workspace:*",
+    "prisma": "^4.14.0",
     "sst": "^2.7.2",
     "vitest": "^0.30.1"
   }

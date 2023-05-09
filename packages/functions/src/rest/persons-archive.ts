@@ -1,11 +1,11 @@
-import { connection } from '@core/db/connection';
+import { mysqlConnection } from '@core/db/connections';
 import * as PersonService from '@core/services/person';
 import { makeAPIResponse } from 'src/shared/utils/http';
 import { ApiHandler } from 'sst/node/api';
 import type swaggerJSDoc from 'swagger-jsdoc';
 import { z } from 'zod';
 
-const db = connection();
+const db = mysqlConnection();
 
 /* Validator */
 const archivePersonSchema = z.object({ id: z.string().uuid() });
