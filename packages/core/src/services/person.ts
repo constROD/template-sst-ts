@@ -1,7 +1,7 @@
 import { type UpdateObject } from 'kysely';
 import { type InsertObjectOrList } from 'kysely/dist/cjs/parser/insert-values-parser';
-import { type DatabaseTables } from 'src/db/schema';
-import { type ServiceParam } from 'src/types';
+import { type DatabaseTables } from '../db/schema';
+import { type ServiceParam } from '../types';
 
 export async function get({ db, id }: ServiceParam<{ id: string }>) {
   const records = await db.selectFrom('persons').selectAll().where('id', '=', id).execute();
