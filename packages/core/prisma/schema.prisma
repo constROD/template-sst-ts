@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:password@localhost:3306/constrod"
+  url      = env("DATABASE_URL")
 }
 
 model persons {
@@ -13,5 +13,5 @@ model persons {
   last_name   String?   @db.VarChar(255)
   created_at  DateTime  @default(now())
   updated_at  DateTime  @default(now())
-  archived_at DateTime? @db.DateTime()
+  archived_at DateTime?
 }
