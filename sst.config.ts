@@ -1,13 +1,14 @@
 import { SSTConfig } from 'sst';
+import { NodeJSProps } from 'sst/constructs';
 import { API } from 'stacks/api';
 import { Secrets } from 'stacks/secrets';
 
-const esbuild = {
+const esbuild: NodeJSProps['esbuild'] = {
   target: 'node16',
   bundle: true,
   minify: false,
   sourcemap: true,
-  external: ['aws-sdk'],
+  external: ['aws-sdk', 'prisma'],
 };
 
 export default {

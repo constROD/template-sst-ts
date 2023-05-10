@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "sst dev --stage dev",
     "build": "sst build --stage dev",
+    "remove": "sst remove --stage dev",
     "format": "prettier --write .",
     "lint": "eslint ./stacks --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./stacks --fix --ext .js,.ts,.jsx,.tsx",
