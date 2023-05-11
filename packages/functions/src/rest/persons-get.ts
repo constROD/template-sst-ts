@@ -17,9 +17,12 @@ export const handler = ApiHandler(async event => {
   if (!validated.success)
     return makeAPIResponse({ type: 'BadRequest', error: { errors: validated.error } });
 
-  const records = await PersonService.get({ db, id: validated.data.id });
-
-  return makeAPIResponse({ type: 'Success', data: { records } });
+  try {
+    const records = await PersonService.get({ db, id: validated.data.id });
+    return makeAPIResponse({ type: 'Success', data: { records } });
+  } catch (error) {
+    return makeAPIResponse({ type: 'ServerError' });
+  }
 });
 
 /* Docs */

@@ -17,9 +17,12 @@ export const handler = ApiHandler(async event => {
   if (!validated.success)
     return makeAPIResponse({ type: 'BadRequest', error: { errors: validated.error } });
 
-  const records = await PersonService.remove({ db, id: validated.data.id });
-
-  return makeAPIResponse({ type: 'Deleted', data: { records } });
+  try {
+    await PersonService.remove({ db, id: validated.data.id });
+    return makeAPIResponse({ type: 'Deleted', data: { message: 'Deleted successfully' } });
+  } catch (error) {
+    return makeAPIResponse({ type: 'ServerError' });
+  }
 });
 
 /* Docs */

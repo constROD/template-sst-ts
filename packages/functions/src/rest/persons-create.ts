@@ -20,9 +20,12 @@ export const handler = ApiHandler(async event => {
   if (!validated.success)
     return makeAPIResponse({ type: 'BadRequest', error: { errors: validated.error } });
 
-  const records = await PersonService.create({ db, values: validated.data });
-
-  return makeAPIResponse({ type: 'Created', data: { records } });
+  try {
+    await PersonService.create({ db, values: validated.data });
+    return makeAPIResponse({ type: 'Created', data: { message: 'Created successfully' } });
+  } catch (error) {
+    return makeAPIResponse({ type: 'ServerError' });
+  }
 });
 
 /* Docs */

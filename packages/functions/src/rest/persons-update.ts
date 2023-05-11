@@ -26,9 +26,12 @@ export const handler = ApiHandler(async event => {
 
   const { id, ...values } = validated.data;
 
-  const records = await PersonService.update({ db, id, values });
-
-  return makeAPIResponse({ type: 'Updated', data: { records } });
+  try {
+    await PersonService.update({ db, id, values });
+    return makeAPIResponse({ type: 'Updated', data: { message: 'Updated successfully' } });
+  } catch (error) {
+    return makeAPIResponse({ type: 'ServerError' });
+  }
 });
 
 /* Docs */

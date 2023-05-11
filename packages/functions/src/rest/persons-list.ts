@@ -8,12 +8,15 @@ const db = mysqlConnection();
 
 /* Handler */
 export const handler = ApiHandler(async () => {
-  const { records, totalRecords } = await PersonService.list({ db });
-
-  return makeAPIResponse({
-    type: 'Success',
-    data: { records, totalRecords },
-  });
+  try {
+    const { records, totalRecords } = await PersonService.list({ db });
+    return makeAPIResponse({
+      type: 'Success',
+      data: { records, totalRecords },
+    });
+  } catch (error) {
+    return makeAPIResponse({ type: 'ServerError' });
+  }
 });
 
 /* Docs */

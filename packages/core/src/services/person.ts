@@ -21,8 +21,8 @@ export async function create({
   db,
   values,
 }: ServiceParam<{ values: InsertObjectOrList<DatabaseTables, keyof DatabaseTables> }>) {
-  const records = await db.insertInto('persons').values(values).execute();
-  return records;
+  await db.insertInto('persons').values(values).execute();
+  return true;
 }
 
 export async function update({
@@ -30,20 +30,20 @@ export async function update({
   id,
   values,
 }: ServiceParam<{ id: string; values: UpdateObject<DatabaseTables, keyof DatabaseTables> }>) {
-  const records = await db.updateTable('persons').set(values).where('id', '=', id).execute();
-  return records;
+  await db.updateTable('persons').set(values).where('id', '=', id).execute();
+  return true;
 }
 
 export async function remove({ db, id }: ServiceParam<{ id: string }>) {
-  const records = await db.deleteFrom('persons').where('id', 'in', id).execute();
-  return records;
+  await db.deleteFrom('persons').where('id', 'in', id).execute();
+  return true;
 }
 
 export async function archive({ db, id }: ServiceParam<{ id: string }>) {
-  const records = await db
+  await db
     .updateTable('persons')
     .set({ archived_at: sql`NOW()` })
     .where('id', '=', id)
     .execute();
-  return records;
+  return true;
 }
