@@ -1,14 +1,15 @@
 import { Kysely, MysqlDialect, PostgresDialect } from 'kysely';
 import { createPool, type PoolOptions } from 'mysql2';
 import { Pool, type PoolConfig } from 'pg';
+import { Config } from 'sst/node/config';
 import { type DatabaseTables } from './schemas';
 
-/* Change this to Secrets Values */
 const defaultConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'constrod',
+  host: Config.DB_HOST,
+  port: Config.DB_PORT ? Number(Config.DB_PORT) : 3306,
+  user: Config.DB_USER,
+  password: Config.DB_PASSWORD,
+  database: Config.DB_NAME,
 };
 
 export function pgConnection(config?: PoolConfig) {

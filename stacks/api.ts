@@ -20,5 +20,11 @@ export function API({ stack }: StackContext) {
   stack.addOutputs({
     ApiEndpoint: api.url,
   });
-  api.bind([use(Secrets).VERSION]);
+  api.bind([
+    use(Secrets).DB_HOST,
+    use(Secrets).DB_PORT,
+    use(Secrets).DB_USER,
+    use(Secrets).DB_PASSWORD,
+    use(Secrets).DB_NAME,
+  ]);
 }
