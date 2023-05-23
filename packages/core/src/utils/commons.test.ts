@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import { format } from 'date-fns';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { formatDate, logger, transformToPascal, wait } from './commons';
+import { STAGES } from '../constants/commons';
+import { formatDate, logger, transformToPascal, verifyCoreStage, wait } from './commons';
 
 describe('formatDate', () => {
   it('should return an empty string when date is null', () => {
@@ -105,5 +106,17 @@ describe('transformToPascal', () => {
     const expectedResult = 'HelloWorldThisIsAnExample';
 
     expect(result).toEqual(expectedResult);
+  });
+});
+
+describe('verifyCoreStage', () => {
+  it('should return true for core stages', () => {
+    expect(verifyCoreStage(STAGES.Dev)).toBe(true);
+    expect(verifyCoreStage(STAGES.Staging)).toBe(true);
+    expect(verifyCoreStage(STAGES.Prod)).toBe(true);
+  });
+
+  it('should return false for non-core stages', () => {
+    expect(verifyCoreStage('nonexistent')).toBe(false);
   });
 });

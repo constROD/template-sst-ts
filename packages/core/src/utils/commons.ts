@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import camelCase from 'lodash/camelCase';
 import startCase from 'lodash/startCase';
+import { STAGES } from '../constants/commons';
 
 export function formatDate(date: Date | null, desiredFormat?: string) {
   if (!date) return '';
@@ -20,4 +21,9 @@ export function wait(ms: number) {
 
 export function transformToPascal(text: string) {
   return startCase(camelCase(text)).replace(/ /g, '');
+}
+
+export function verifyCoreStage(stage: string) {
+  const stageValue = stage as (typeof STAGES)[keyof typeof STAGES];
+  return [STAGES.Dev, STAGES.Staging, STAGES.Prod].includes(stageValue);
 }

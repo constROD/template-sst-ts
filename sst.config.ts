@@ -1,7 +1,9 @@
+import { verifyCoreStage } from '@core/utils/commons';
 import { SSTConfig } from 'sst';
 import { NodeJSProps } from 'sst/constructs';
 import { API } from 'stacks/api';
 import { Secrets } from 'stacks/secrets';
+import { VPC } from 'stacks/vpc';
 
 const esbuild: NodeJSProps['esbuild'] = {
   target: 'node16',
@@ -19,8 +21,15 @@ export default {
     };
   },
   stacks(app) {
+    const isCoreStage = verifyCoreStage(app.stage);
+
     app.setDefaultFunctionProps({ nodejs: { esbuild } });
+    app.stack(VPC);
     app.stack(Secrets);
     app.stack(API);
+
+    if (isCoreStage) {
+      /* Add stateful stacks here */
+    }
   },
 } satisfies SSTConfig;

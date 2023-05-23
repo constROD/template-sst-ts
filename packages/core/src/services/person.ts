@@ -8,19 +8,48 @@ export async function get({ db, id }: ServiceParam<{ id: string }>) {
   return records;
 }
 
-export async function list({ db }: ServiceParam) {
-  const records = await db.selectFrom('persons').selectAll().execute();
+export async function list({
+  db,
+  fields = [],
+  page = 1,
+  count = 100,
+  sortBy = 'created_at',
+  orderBy = 'asc',
+}: ServiceParam<{
+  fields?: (keyof DatabaseTables['persons'])[];
+  page?: number;
+  count?: number;
+  sortBy?: keyof DatabaseTables['persons'];
+  orderBy?: 'asc' | 'desc';
+}>) {
+  const query = db
+    .selectFrom('persons')
+    .limit(count)
+    .offset((page - 1) * count)
+    .orderBy(sortBy, orderBy);
+
+  let records;
+
+  if (fields.length) {
+    records = await query.select(fields).execute();
+  } else {
+    records = await query.selectAll().execute();
+  }
+
   const [data] = await db
     .selectFrom('persons')
     .select(db.fn.count('id').as('total_records'))
     .execute();
+
   return { records, totalRecords: data?.total_records ?? 0 };
 }
 
 export async function create({
   db,
   values,
-}: ServiceParam<{ values: InsertObjectOrList<DatabaseTables, keyof DatabaseTables> }>) {
+}: ServiceParam<{
+  values: InsertObjectOrList<DatabaseTables, keyof Pick<DatabaseTables, 'persons'>>;
+}>) {
   await db.insertInto('persons').values(values).execute();
   return true;
 }
@@ -29,7 +58,10 @@ export async function update({
   db,
   id,
   values,
-}: ServiceParam<{ id: string; values: UpdateObject<DatabaseTables, keyof DatabaseTables> }>) {
+}: ServiceParam<{
+  id: string;
+  values: UpdateObject<DatabaseTables, keyof Pick<DatabaseTables, 'persons'>>;
+}>) {
   await db.updateTable('persons').set(values).where('id', '=', id).execute();
   return true;
 }
