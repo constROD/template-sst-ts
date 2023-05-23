@@ -29,13 +29,13 @@ pnpm i
 **Build:**
 
 ```bash
-pnpm build --stage <stage>
+pnpm build --stage=<stage>
 ```
 
 **Development:**
 
 ```bash
-pnpm dev --stage <stage>
+pnpm dev --stage=<stage>
 ```
 
 **Secrets:**
@@ -51,23 +51,23 @@ If you want to add secrets, you need to follow these steps:
 **Add secret**
 
 ```bash
-pnpm secrets set <secret_key> <secret_value> --stage <stage>
+pnpm secrets set <secret_key> <secret_value> --stage=<stage>
 ```
 
 **List of secrets**
 
 ```bash
-pnpm secrets list --stage <stage>
+pnpm secrets list --stage=<stage>
 ```
 
 **Delete secret**
 
 ```bash
-pnpm secrets remove <secret_key> --stage <stage>
+pnpm secrets remove <secret_key> --stage=<stage>
 ```
 
 **Load secrets from .env file**
 
 ```bash
-pnpm secrets load <path_to_env> --stage <stage>
+pnpm secrets load <path_to_env> --stage=<stage>
 ```

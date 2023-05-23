@@ -15,7 +15,6 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.STAGING_AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.STAGING_AWS_REGION }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,10 +35,6 @@ jobs:
 
       - name: SST Deploy to Staging
         run: npx sst deploy --stage ${{ env.STAGE }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ env.AWS_REGION }}
 
   deploy-to-production:
     if: github.ref == 'refs/heads/main'
@@ -49,7 +44,6 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.PROD_AWS_REGION }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -70,7 +64,3 @@ jobs:
 
       - name: SST Deploy to Production
         run: npx sst deploy --stage ${{ env.STAGE }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ env.AWS_REGION }}
