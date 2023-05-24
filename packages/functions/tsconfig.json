@@ -4,7 +4,14 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@core/*": ["../core/src/*"]
+      "modules/*": ["./src/modules/*"],
+      "rest/*": ["./src/rest/*"],
+      "shared/*": ["./src/shared/*"],
+      "@core/constants/*": ["../core/src/constants/*"],
+      "@core/db/*": ["../core/src/db/*"],
+      "@core/services/*": ["../core/src/services/*"],
+      "@core/types/*": ["../core/src/types/*"],
+      "@core/utils/*": ["../core/src/utils/*"]
     }
   },
   "exclude": ["./node_modules"]

@@ -18,6 +18,7 @@ module.exports = {
     'no-console': 'error',
     'no-promise-executor-return': 'off',
     'no-new': 'off',
+    'import/no-self-import': 'off',
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': [
       'error',

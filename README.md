@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-- Download extension **ESLint** and **Prettier ESLint** in your VSCode.
-- Install **node** >= 16.13.0
-- Install **pnpm** >= 7.17.0
+- Download extension **ESLint** and **Prettier - Code formatter** in your VSCode.
+- Install **node** 16.13.2.
+- Install **pnpm** ^7.x.x.
 
 - **(Required for MacOSX):** Run this to give permission husky to run pre-commit hook.
 

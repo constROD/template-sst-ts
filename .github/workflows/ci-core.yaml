@@ -26,20 +26,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.0
+          node-version: 16.13.2
           cache: 'pnpm'
 
       - name: Install Packages
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm build --stage dev
+        run: pnpm build --stage=dev
 
       - name: Lint Types
         run: pnpm ci:lint
 
       - name: Run Tests and Generate Coverage
-        run: pnpm ci:test --stage dev
+        run: pnpm ci:test --stage=dev
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v2

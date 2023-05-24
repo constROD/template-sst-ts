@@ -20,7 +20,7 @@
     "remove": "sst remove",
     "secrets": "sst secrets",
     "release": "changeset tag",
-    "test": "sst bind vitest",
+    "test": "sst bind \"vitest --no-threads\"",
     "core:test": "pnpm --filter=core run test",
     "core:generate": "pnpm --filter=core prisma:migrate:generate",
     "core:deploy": "pnpm --filter=core prisma:migrate:deploy",

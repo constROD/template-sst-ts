@@ -27,14 +27,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.0
+          node-version: 16.13.2
           cache: 'pnpm'
 
       - name: Install Packages
         run: pnpm install --frozen-lockfile
 
       - name: SST Deploy to Staging
-        run: npx sst deploy --stage ${{ env.STAGE }}
+        run: npx sst deploy --stage=${{ env.STAGE }}
 
   deploy-to-production:
     if: github.ref == 'refs/heads/main'
@@ -56,11 +56,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.0
+          node-version: 16.13.2
           cache: 'pnpm'
 
       - name: Install Packages
         run: pnpm install --frozen-lockfile
 
       - name: SST Deploy to Production
-        run: npx sst deploy --stage ${{ env.STAGE }}
+        run: npx sst deploy --stage=${{ env.STAGE }}

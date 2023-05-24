@@ -1,7 +1,7 @@
+import { STAGES } from '@core/constants/commons';
 import { format } from 'date-fns';
 import camelCase from 'lodash/camelCase';
 import startCase from 'lodash/startCase';
-import { STAGES } from '../constants/commons';
 
 export function formatDate(date: Date | null, desiredFormat?: string) {
   if (!date) return '';

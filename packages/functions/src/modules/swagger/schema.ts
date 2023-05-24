@@ -1,10 +1,10 @@
 import { version } from 'package.json';
-import { archivePersonDocs } from 'src/rest/persons-archive';
-import { createPersonDocs } from 'src/rest/persons-create';
-import { deletePersonDocs } from 'src/rest/persons-delete';
-import { getPersonDocs } from 'src/rest/persons-get';
-import { listPersonDocs } from 'src/rest/persons-list';
-import { updatePersonDocs } from 'src/rest/persons-update';
+import { archivePersonDocs } from 'rest/persons/archive';
+import { createPersonDocs } from 'rest/persons/create';
+import { deletePersonDocs } from 'rest/persons/delete';
+import { getPersonDocs } from 'rest/persons/get';
+import { listPersonDocs } from 'rest/persons/list';
+import { updatePersonDocs } from 'rest/persons/update';
 import swaggerJsdoc from 'swagger-jsdoc';
 import { makeSwaggerPaths } from './helpers';
 

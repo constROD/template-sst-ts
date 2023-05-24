@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
+import { STAGES } from '@core/constants/commons';
 import { format } from 'date-fns';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { STAGES } from '../constants/commons';
 import { formatDate, logger, transformToPascal, verifyCoreStage, wait } from './commons';
 
 describe('formatDate', () => {

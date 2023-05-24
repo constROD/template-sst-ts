@@ -8,7 +8,11 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true,
     "paths": {
-      "@core/*": ["./packages/core/src/*"]
+      "@core/constants/*": ["./packages/core/src/constants/*"],
+      "@core/db/*": ["./packages/core/src/db/*"],
+      "@core/services/*": ["./packages/core/src/services/*"],
+      "@core/types/*": ["./packages/core/src/types/*"],
+      "@core/utils/*": ["./packages/core/src/utils/*"]
     }
   }
 }

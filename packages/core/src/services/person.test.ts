@@ -1,5 +1,5 @@
-import { mysqlConnection } from 'src/db/connections';
-import { type DatabaseTables } from 'src/db/schemas';
+import { mysqlConnection } from '@core/db/connections';
+import { type DatabaseTables } from '@core/db/schemas';
 import { describe, expect, it } from 'vitest';
 import { list } from './person';
 

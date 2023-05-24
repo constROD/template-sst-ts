@@ -2,7 +2,14 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@core/constants/*": ["./src/constants/*"],
+      "@core/db/*": ["./src/db/*"],
+      "@core/services/*": ["./src/services/*"],
+      "@core/types/*": ["./src/types/*"],
+      "@core/utils/*": ["./src/utils/*"]
+    }
   },
   "exclude": ["./node_modules"]
 }
