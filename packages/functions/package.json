@@ -15,7 +15,7 @@
     "@types/node": "^18.16.1",
     "@types/swagger-jsdoc": "^6.0.1",
     "eslint-config-base": "workspace:*",
-    "sst": "^2.7.2",
+    "sst": "2.10.4",
     "swagger-jsdoc": "^6.2.8",
     "vitest": "^0.30.1"
   },

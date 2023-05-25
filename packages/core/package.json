@@ -30,7 +30,7 @@
     "@types/pg": "^8.6.6",
     "eslint-config-base": "workspace:*",
     "prisma": "^4.14.0",
-    "sst": "^2.7.2",
+    "sst": "2.10.4",
     "vitest": "^0.30.1"
   }
 }
