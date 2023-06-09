@@ -1,5 +1,5 @@
 import { mysqlConnection } from '@core/db/connections';
-import * as PersonService from '@core/services/person';
+import { PersonService } from '@core/services/person';
 import { makeAPIResponse } from 'shared/utils/http';
 import { ApiHandler } from 'sst/node/api';
 import type swaggerJSDoc from 'swagger-jsdoc';

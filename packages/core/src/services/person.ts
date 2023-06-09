@@ -3,6 +3,8 @@ import { type ServiceParam } from '@core/types/commons';
 import { sql, type UpdateObject } from 'kysely';
 import { type InsertObjectOrList } from 'kysely/dist/cjs/parser/insert-values-parser';
 
+export * as PersonService from './person';
+
 export async function get({ db, id }: ServiceParam<{ id: string }>) {
   const records = await db.selectFrom('persons').selectAll().where('id', '=', id).execute();
   return records;
