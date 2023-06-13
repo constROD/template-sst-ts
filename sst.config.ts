@@ -1,4 +1,4 @@
-import { verifyCoreStage } from '@core/utils/commons';
+import { CommonUtil } from '@core/utils/commons';
 import { SSTConfig } from 'sst';
 import { NodeJSProps } from 'sst/constructs';
 import { API } from 'stacks/api';
@@ -21,7 +21,7 @@ export default {
     };
   },
   stacks(app) {
-    const isCoreStage = verifyCoreStage(app.stage);
+    const isCoreStage = CommonUtil.verifyCoreStage(app.stage);
 
     app.setDefaultFunctionProps({ nodejs: { esbuild } });
     app.stack(VPC);

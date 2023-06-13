@@ -1,3 +1,4 @@
+import { DEFAULT_DB_CONFIG } from '@core/constants/db';
 import { mysqlConnection } from '@core/db/connections';
 import { PersonService } from '@core/services/person';
 import { makeAPIResponse } from 'shared/utils/http';
@@ -5,7 +6,7 @@ import { ApiHandler } from 'sst/node/api';
 import type swaggerJSDoc from 'swagger-jsdoc';
 import { z } from 'zod';
 
-const db = mysqlConnection();
+const db = mysqlConnection(DEFAULT_DB_CONFIG);
 
 /* Validator */
 const getPersonSchema = z.object({ id: z.string().uuid() });

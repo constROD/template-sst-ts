@@ -5,8 +5,8 @@ export function API({ stack }: StackContext) {
   const api = new Api(stack, 'API', {
     routes: {
       /* Swagger Docs */
-      'GET /': 'packages/functions/src/rest/swagger.handler',
-      'GET /swagger.json': 'packages/functions/src/rest/swagger.handler',
+      'GET /': 'packages/functions/src/rest/swagger/index.handler',
+      'GET /swagger.json': 'packages/functions/src/rest/swagger/index.handler',
 
       /* Persons */
       'GET /persons': 'packages/functions/src/rest/persons/list.handler',

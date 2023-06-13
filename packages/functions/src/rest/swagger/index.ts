@@ -1,10 +1,8 @@
-import { SWAGGER_ROUTES } from 'src/modules/swagger/constants';
-import { swaggerDefinition } from 'src/modules/swagger/schema';
+import { SWAGGER_ROUTES, SWAGGER_TITLE } from 'shared/constants/swagger';
 import { ApiHandler } from 'sst/node/api';
+import { swaggerDefinition } from './schema';
 
 export const handler = ApiHandler(async event => {
-  const title = 'bossROD TV API';
-
   if (event.rawPath === SWAGGER_ROUTES.swaggerJson.path) {
     return {
       statusCode: 200,
@@ -19,7 +17,7 @@ export const handler = ApiHandler(async event => {
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>${title}</title>
+        <title>${SWAGGER_TITLE}</title>
         <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css">
     </head>
     <body>
@@ -29,7 +27,7 @@ export const handler = ApiHandler(async event => {
           SwaggerUIBundle({
             dom_id: '#swagger',
             url: '${SWAGGER_ROUTES.swaggerJson.path}'
-        });
+        });a
         </script>
     </body>
     </html>`;

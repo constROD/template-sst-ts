@@ -50,7 +50,7 @@ export async function create({
   db,
   values,
 }: ServiceParam<{
-  values: InsertObjectOrList<DatabaseTables, keyof Pick<DatabaseTables, 'persons'>>;
+  values: InsertObjectOrList<DatabaseTables, 'persons'>;
 }>) {
   await db.insertInto('persons').values(values).execute();
   return true;
@@ -62,7 +62,7 @@ export async function update({
   values,
 }: ServiceParam<{
   id: string;
-  values: UpdateObject<DatabaseTables, keyof Pick<DatabaseTables, 'persons'>>;
+  values: UpdateObject<DatabaseTables, 'persons'>;
 }>) {
   await db.updateTable('persons').set(values).where('id', '=', id).execute();
   return true;

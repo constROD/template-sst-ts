@@ -3,6 +3,8 @@ import { format } from 'date-fns';
 import camelCase from 'lodash/camelCase';
 import startCase from 'lodash/startCase';
 
+export * as CommonUtil from './commons';
+
 export function formatDate(date: Date | null, desiredFormat?: string) {
   if (!date) return '';
   const dateFormat = desiredFormat || 'yyyy-MM-dd HH:mm:ss xx';

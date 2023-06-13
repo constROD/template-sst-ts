@@ -49,5 +49,16 @@ module.exports = {
         checksVoidReturn: false,
       },
     ],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'typeLike',
+        format: ['PascalCase'],
+      },
+      {
+        selector: 'enumMember',
+        format: ['UPPER_CASE'],
+      },
+    ],
   },
 };

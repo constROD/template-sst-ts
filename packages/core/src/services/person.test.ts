@@ -1,9 +1,10 @@
+import { DEFAULT_DB_CONFIG } from '@core/constants/db';
 import { mysqlConnection } from '@core/db/connections';
 import { type DatabaseTables } from '@core/db/schemas';
 import { describe, expect, it } from 'vitest';
 import { PersonService } from './person';
 
-const db = mysqlConnection();
+const db = mysqlConnection(DEFAULT_DB_CONFIG);
 
 describe('person', () => {
   describe('list', () => {
@@ -28,7 +29,7 @@ describe('person', () => {
     });
 
     it('should return sorted list of persons', async () => {
-      const sortBy: keyof DatabaseTables['persons'] = 'first_name';
+      const sortBy = 'first_name';
       const orderBy: 'asc' | 'desc' = 'asc';
       const { records } = await PersonService.list({ db, sortBy, orderBy });
       const sortedRecords = [...records].sort((a, b) => a[sortBy].localeCompare(b[sortBy]));

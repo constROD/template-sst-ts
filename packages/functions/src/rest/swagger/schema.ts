@@ -5,8 +5,9 @@ import { deletePersonDocs } from 'rest/persons/delete';
 import { getPersonDocs } from 'rest/persons/get';
 import { listPersonDocs } from 'rest/persons/list';
 import { updatePersonDocs } from 'rest/persons/update';
+import { SWAGGER_TITLE } from 'shared/constants/swagger';
+import { makeSwaggerPaths } from 'shared/utils/swagger';
 import swaggerJsdoc from 'swagger-jsdoc';
-import { makeSwaggerPaths } from './helpers';
 
 const personsDocs = makeSwaggerPaths([
   archivePersonDocs,
@@ -21,7 +22,7 @@ const options: swaggerJsdoc.OAS3Options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: `bossROD TV API`,
+      title: SWAGGER_TITLE,
       version,
     },
     paths: {

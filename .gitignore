@@ -8,6 +8,7 @@ coverage/
 .sst/
 .build/
 .sst.config.*
+cdk.context.json
 
 # logs
 *.log

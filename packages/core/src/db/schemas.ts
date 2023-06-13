@@ -1,4 +1,4 @@
-import { type persons } from '@prisma/client';
+import { type persons as Persons } from '@prisma/client';
 import { type ColumnType, type Generated } from 'kysely';
 
 type OverrideCommonField<T> = Omit<T, 'id' | 'created_at' | 'updated_at'> & {
@@ -8,5 +8,5 @@ type OverrideCommonField<T> = Omit<T, 'id' | 'created_at' | 'updated_at'> & {
 };
 
 export interface DatabaseTables {
-  persons: OverrideCommonField<persons>;
+  persons: OverrideCommonField<Persons>;
 }
