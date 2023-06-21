@@ -1,25 +1,24 @@
 /* eslint-disable no-console */
 import { STAGES } from '@core/constants/commons';
-import { format } from 'date-fns';
+import dayjs from 'dayjs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { CommonUtil } from './commons';
 
 describe('formatDate', () => {
   it('should return an empty string when date is null', () => {
-    expect(CommonUtil.formatDate(null)).toBe('');
+    expect(CommonUtil.formatDate(null)).toMatchInlineSnapshot('""');
   });
 
   it('should return a correctly formatted date string', () => {
     const date = new Date('2022-01-01T00:00:00Z');
-    const expected = format(date, 'yyyy-MM-dd HH:mm:ss xx');
-    expect(CommonUtil.formatDate(date)).toBe(expected);
+    expect(CommonUtil.formatDate(date)).toMatchInlineSnapshot('"2022-01-01 08:00:00 +08:00"');
   });
 
   it('should return a correctly formatted date string with custom format', () => {
     const date = new Date('2022-01-01T00:00:00Z');
-    const customFormat = 'yyyy/MM/dd';
-    const expected = format(date, customFormat);
-    expect(CommonUtil.formatDate(date, customFormat)).toBe(expected);
+    const customFormat = 'YYYY/MM/DD';
+    expect(CommonUtil.formatDate(date, customFormat)).toMatchInlineSnapshot('"2022/01/01"');
   });
 });
 
@@ -36,7 +35,7 @@ describe('logger', () => {
 
   it('should call console.debug with correct format', () => {
     const testData = { path: '/test', event: 'test_event', log: { message: 'test_message' } };
-    const date = format(new Date(), 'yyyy/MM/dd hh:mm:ss');
+    const date = dayjs().format('YYYY/MM/DD hh:mm:ss');
     const expectedMessage = `[${date}]: ${testData.path} (${testData.event}) >> `;
 
     CommonUtil.logger(testData);

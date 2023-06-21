@@ -1,5 +1,6 @@
 import { SWAGGER_ROUTES, SWAGGER_TITLE } from 'shared/constants/swagger';
 import { ApiHandler } from 'sst/node/api';
+
 import { swaggerDefinition } from './schema';
 
 export const handler = ApiHandler(async event => {

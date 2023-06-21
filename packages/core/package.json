@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "sst bind \"vitest --single-thread\"",
+    "test": "vitest --single-thread",
     "prisma:generate": "prisma generate",
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:migrate:dev": "prisma migrate dev",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
-    "date-fns": "^2.30.0",
+    "dayjs": "^1.11.8",
     "kysely": "^0.24.2",
     "lodash": "^4.17.21",
     "mysql2": "^3.3.5",
@@ -28,6 +28,7 @@
     "@types/lodash": "^4.14.195",
     "@types/node": "^18.16.18",
     "@types/pg": "^8.10.2",
+    "dotenv": "^16.3.1",
     "eslint-config-base": "workspace:*",
     "prisma": "^4.15.0",
     "sst": "2.10.4",

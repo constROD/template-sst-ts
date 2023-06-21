@@ -1,4 +1,5 @@
-import { Api, use, type StackContext } from 'sst/constructs';
+import { Api, type StackContext, use } from 'sst/constructs';
+
 import { Secrets } from './secrets';
 
 export function API({ stack }: StackContext) {

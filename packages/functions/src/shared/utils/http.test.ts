@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { HTTP_RESPONSES } from '../constants/http';
 import { makeAPIResponse } from './http';
 

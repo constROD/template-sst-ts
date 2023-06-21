@@ -13,11 +13,14 @@ module.exports = {
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import', 'simple-import-sort'],
   rules: {
+    'prefer-promise-reject-errors': 'off',
+    'no-param-reassign': 'off',
+    'no-void': ['error', { allowAsStatement: true }],
+    'no-undef': 'error',
     'no-console': 'error',
-    'no-promise-executor-return': 'off',
-    'no-new': 'off',
+    'simple-import-sort/imports': 'error',
     'import/no-self-import': 'off',
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': [
@@ -30,6 +33,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-floating-promises': 'warn',
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/consistent-type-imports': [
       'warn',
       {
@@ -49,6 +53,7 @@ module.exports = {
         checksVoidReturn: false,
       },
     ],
+
     '@typescript-eslint/naming-convention': [
       'error',
       {

@@ -1,10 +1,11 @@
-import { DEFAULT_DB_CONFIG } from '@core/constants/db';
+import { DEFAULT_TEST_DB_CONFIG } from '@core/constants/test';
 import { mysqlConnection } from '@core/db/connections';
 import { type DatabaseTables } from '@core/db/schemas';
 import { describe, expect, it } from 'vitest';
+
 import { PersonService } from './person';
 
-const db = mysqlConnection(DEFAULT_DB_CONFIG);
+const db = mysqlConnection(DEFAULT_TEST_DB_CONFIG);
 
 describe('person', () => {
   describe('list', () => {
