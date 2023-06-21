@@ -1,9 +1,9 @@
 {
   "name": "core",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "test": "vitest --single-thread",
+    "run:script": "ts-node -r tsconfig-paths/register",
     "prisma:generate": "prisma generate",
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:migrate:dev": "prisma migrate dev",

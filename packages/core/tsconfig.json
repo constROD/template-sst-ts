@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig.json",
+  "exclude": ["./node_modules"],
   "compilerOptions": {
     "module": "esnext",
     "baseUrl": ".",
@@ -11,5 +12,10 @@
       "@core/utils/*": ["./src/utils/*"]
     }
   },
-  "exclude": ["./node_modules"]
+  "ts-node": {
+    "require": ["tsconfig-paths/register"],
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

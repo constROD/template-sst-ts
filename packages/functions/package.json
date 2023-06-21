@@ -5,7 +5,6 @@
   "scripts": {
     "test": "sst bind \"vitest --single-thread\"",
     "format": "prettier --write ./src/**/*.ts{,x}",
-    "run:script": "ts-node -r tsconfig-paths/register",
     "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.ts,.jsx,.tsx",
     "lint:types": "tsc --noEmit",
