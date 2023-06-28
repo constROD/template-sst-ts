@@ -34,21 +34,22 @@ describe('makeAPIResponse', () => {
     expect(result).toEqual(expectedResult);
   });
 
-  it('should create a response with raw data and error when isRaw is true', () => {
+  it('should create a response with raw data when raw is defined', () => {
     const type = 'Success';
     const data = { message: 'Hello, world!' };
     const error = { message: 'Something went wrong' };
+    const raw = { rawMessage: 'Raw data' };
 
     const result = makeAPIResponse({
       type,
       data,
       error,
-      isRaw: true,
+      raw,
     });
     const expectedResult = {
       statusCode: HTTP_RESPONSES[type].statusCode,
       headers,
-      body: JSON.stringify({ data, error }),
+      body: JSON.stringify({ ...raw, data, error }),
     };
 
     expect(result).toEqual(expectedResult);

@@ -6,11 +6,11 @@ const commonHeaders = {
   'Content-Type': 'application/json',
 };
 
-type MakeAPIResponseOption<TData, TError> = {
+type MakeAPIResponseOption<TData, TError, TRaw> = {
   type: keyof typeof HTTP_RESPONSES;
   data?: TData;
+  raw?: TRaw;
   error?: TError;
-  isRaw?: boolean;
 };
 
 /**
@@ -19,20 +19,20 @@ type MakeAPIResponseOption<TData, TError> = {
  * @param type based on HTTP_RESPONSES
  * @param data the data to be returned
  * @param error the error to be returned
- * @param isRaw option to return raw data or not
+ * @param raw the raw data to be returned
  * @returns API Gateway response
  */
-export function makeAPIResponse<TData, TError>({
+export function makeAPIResponse<TData, TError, TRaw>({
   type,
   data,
   error,
-  isRaw = false,
-}: MakeAPIResponseOption<TData, TError>) {
+  raw = undefined,
+}: MakeAPIResponseOption<TData, TError, TRaw>) {
   return {
     statusCode: HTTP_RESPONSES[type].statusCode,
     headers: commonHeaders,
-    body: isRaw
-      ? JSON.stringify({ data, error })
+    body: raw
+      ? JSON.stringify({ ...raw, data, error })
       : JSON.stringify({
           message: HTTP_RESPONSES[type].message,
           code: HTTP_RESPONSES[type].code,
